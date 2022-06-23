@@ -1,0 +1,7 @@
+POST  http://localhost:5000/api/v1/user/register
+Content-Type: application/json
+
+{
+    "username":"nhan",
+    "password":"123"
+}
