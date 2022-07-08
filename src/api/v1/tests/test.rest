@@ -2,6 +2,27 @@ POST  http://localhost:5000/api/v1/user/register
 Content-Type: application/json
 
 {
-    "username":"nhan",
-    "password":"123"
+    "username":"nhan23@gmail.com",
+    "password":"NgHoainHan123!@#",
+    "confirm_password":"NgHoainHan123!@#"
+}
+###
+POST  http://localhost:5000/api/v1/user/login
+Content-Type: application/json
+
+{
+    "username":"nhan21@gmail.com",
+    "password":"NgHoainHan123!@#"
+}
+
+### 
+GET  http://localhost:5000/api/v1/user?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI2MmM4M2Y5YjY0NDY1OTJhNjY1ZWFjNmEiLCJpYXQiOjE2NTcyOTE0MDMsImV4cCI6MTY1NzI5NTAwM30.002XRjgcxzZ7nl7cPFWVi9hyLgviPBo5gt9PdNO0mU4
+
+### 
+POST http://localhost:5000/api/v1/user/refreshtoken
+x-access-refreshtoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI2MmM4M2Y5YjY0NDY1OTJhNjY1ZWFjNmEiLCJpYXQiOjE2NTcyOTQ5MjAsImV4cCI6MTY1NzM4MTMyMH0.R8b6ulH3lqRTme6XmH36GnA-LTZKXBKA-QqWQHw8Ztc
+Content-Type: application/json
+
+{
+    "userid":"62c83f9b6446592a665eac6a"
 }

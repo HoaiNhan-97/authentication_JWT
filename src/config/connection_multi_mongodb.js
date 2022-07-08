@@ -11,10 +11,14 @@ function newConnection(uri){
     connect.on("error",function(){
         console.log("Mongodb ::: error ::: ",this.name);
     })
+
     return connect;
 }
 
-const mongoTestDabase = newConnection(process.env.URI_MONGODB_TEST);
-const mongoUsersDabase = newConnection(process.env.URI_MONGODB_USERS);
+const mongoTestDabase = newConnection(process.env.URI_MONGODB_DB1);
+// const mongoUsersDabase = newConnection(process.env.URI_MONGODB_DB2);
 
-module.exports = {mongoTestDabase,mongoUsersDabase};
+module.exports = {
+    mongoTestDabase,
+    // mongoUsersDabase
+};

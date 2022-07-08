@@ -3,9 +3,7 @@ const createError = require("http-errors");
 
 const app = express();
 
-// conect monogodb
-
-require("./config/connection_mongodb.js");
+// require("./config/connection_mongodb.js");
 
 // User router
 

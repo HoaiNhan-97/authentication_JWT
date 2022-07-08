@@ -1,22 +1,15 @@
 const express = require("express");
-
 const route = express.Router();
-const _Userjwt = require("../modules/user.module.js");
-// const {userTest1,userTest2} = require("../modules/user.multi.module.js");
+const userController = require("../controlers/user.controler.js")
+const validationUser = require("../validations/user.validation.js");
+const token = require("../helpers/token.helper.js")
 
-route.post("/register", async (req,res,next) =>{
-    try{
-        const newUserJwt = await _Userjwt.create(req.body);
-        // const newUserTest1 = new userTest1(req.body);
-        // const newUserTest2 = new userTest2(req.body);
-        // await newUserJwt.save();
-        // await newUserTest1.save();
-        // await newUserTest2.save();
-        res.json(newUserJwt);
+route.post("/register",validationUser.register,userController.register);
+route.post("/login", validationUser.login,userController.login);
+route.post("/refreshtoken",validationUser.refreshToken,token.verifyRefeshToken,userController.refreshToken)
+// // route require token
+route.use(token.verifyAcessToken);
+route.get("/",userController.list)
 
-    }catch(err){
-        next(err)
-    }
-    
-})
+
 module.exports =route;
