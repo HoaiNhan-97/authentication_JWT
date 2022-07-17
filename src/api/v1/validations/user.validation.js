@@ -1,5 +1,5 @@
 const createError = require("http-errors")
-const { registerSchema, loginSchema, refreshTokenSchema } = require("./schemas/user.schema.js");
+const { registerSchema, loginSchema, refreshTokenSchema,logoutSchema} = require("./schemas/user.schema.js");
 const register = async (req,res,next) => {
     try{
         await registerSchema.validateAsync(req.body)
@@ -24,4 +24,13 @@ const refreshToken = async (req,res,next) => {
         next(createError.BadRequest(err.details[0].message))
     }
 }
-module.exports = { register, login,refreshToken};
+
+const logout = async (req,res,next) => {
+  try{
+      await logoutSchema.validateAsync(req.body)
+      next();
+  }catch(err){
+      next(createError.BadRequest(err.details[0].message))
+  }
+}
+module.exports = { register, login,refreshToken,logout};

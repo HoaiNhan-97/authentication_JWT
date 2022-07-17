@@ -5,6 +5,7 @@ async function set(userid, value, option = {}) {
       await client.set(userid, value, option);
       await client.quit();
     } catch (err) {
+      await client.quit();
       throw new Error("Resdis " + err.message);
     }
   }
@@ -16,6 +17,7 @@ async function set(userid, value, option = {}) {
       await client.quit();
       return value
     } catch (err) {
+      await client.quit();
       throw new Error("Resdis " + err.message);
     }
   }
@@ -25,6 +27,7 @@ async function set(userid, value, option = {}) {
       await client.del(key);
       await client.quit();
     } catch (err) {
+      await client.quit();
       throw new Error("Resdis " + err.message);
     }
   }

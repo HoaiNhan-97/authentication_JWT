@@ -24,6 +24,10 @@ const verifyAcessToken = (req,res,next)=>{
     if(token){
         jwt.verify(token,process.env.SECRET_KEY,(err,decoded)=>{
             if(err){
+                if(err.name==="TokenExpiredError"){
+                    next({status:401,message:err.message});
+                    return;
+                }
                 next(createError.Unauthorized());
                 return;
             }

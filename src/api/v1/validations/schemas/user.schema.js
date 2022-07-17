@@ -75,4 +75,19 @@ const refreshTokenSchema = Joi.object({
         "string.empty" : "userid is not allow empty" 
     })
 })
-module.exports = {registerSchema,loginSchema,refreshTokenSchema}
+
+const logoutSchema = Joi.object({
+    refreshToken: Joi.string()
+    .required()
+    .messages({
+        "any.required":"refreshToken is required",
+        "string.empty" : "refreshToken is not allow empty" 
+    }),
+    userid:Joi.string()
+    .required()
+    .messages({
+        "any.required":"userid is required",
+        "string.empty" : "userid is not allow empty" 
+    })
+})
+module.exports = {registerSchema,loginSchema,refreshTokenSchema,logoutSchema}

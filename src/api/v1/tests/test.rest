@@ -2,7 +2,7 @@ POST  http://localhost:5000/api/v1/user/register
 Content-Type: application/json
 
 {
-    "username":"nhan23@gmail.com",
+    "username":"nhan25@gmail.com",
     "password":"NgHoainHan123!@#",
     "confirm_password":"NgHoainHan123!@#"
 }
@@ -16,13 +16,22 @@ Content-Type: application/json
 }
 
 ### 
-GET  http://localhost:5000/api/v1/user?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI2MmM4M2Y5YjY0NDY1OTJhNjY1ZWFjNmEiLCJpYXQiOjE2NTcyOTE0MDMsImV4cCI6MTY1NzI5NTAwM30.002XRjgcxzZ7nl7cPFWVi9hyLgviPBo5gt9PdNO0mU4
+GET  http://localhost:5000/api/v1/user?token=eyJhbGciOiJIUzI1iIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI2MmM4NDE2ODQ0MDk3NjY3OGVmNjIyOWEiLCJpYXQiOjE2NTc2MjM2MDksImV4cCI6MTY1NzYyNzIwOX0.3AX0jEX4rSsfWaL2gjxnTthzKPwvAoy0T3Iw2xBT5Eg
 
 ### 
 POST http://localhost:5000/api/v1/user/refreshtoken
-x-access-refreshtoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI2MmM4M2Y5YjY0NDY1OTJhNjY1ZWFjNmEiLCJpYXQiOjE2NTcyOTQ5MjAsImV4cCI6MTY1NzM4MTMyMH0.R8b6ulH3lqRTme6XmH36GnA-LTZKXBKA-QqWQHw8Ztc
+x-access-refreshtoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI2MmM4M2Y5YjY0NDY1OTJhNjY1ZWFjNmEiLCJpYXQiOjE2NTc3MTQ5NDUsImV4cCI6MTY1NzgwMTM0NX0.XRWnO_ANN6UzAjIXzSo1_PLmX9Ut3BsxV5sDLEI9Pes
 Content-Type: application/json
 
 {
     "userid":"62c83f9b6446592a665eac6a"
+}
+
+### 
+DELETE  http://localhost:5000/api/v1/user/logout
+Content-Type: application/json
+
+{
+    "userid":"62c84168440976678ef6229a",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI2MmM4NDE2ODQ0MDk3NjY3OGVmNjIyOWEiLCJpYXQiOjE2NTc2MjQ3MjEsImV4cCI6MTY1NzcxMTEyMX0.MhsOx3u-fZV0kpJFQ5a_eIIMY-o4I_q15DoRTNik29o"
 }

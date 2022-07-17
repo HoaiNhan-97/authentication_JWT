@@ -12,7 +12,7 @@ const bcrypt = require("bcrypt");
 // jsonwebtoken
 const token = require("../helpers/token.helper.js");
 
-
+const redis = require("../services/user.redis.service.js");
 
 const register = async (req,res,next) =>{
     try{
@@ -90,9 +90,16 @@ const refreshToken = async (req,res,next) => {
         next(err);
     }
 }
+const logout  = async (req,res,next) => {
+    try{
+        await redis.del(req.body.userid)
+        res.json({status:200,message:"logout"})
+    }catch(err){next(err)}
+}
 module.exports = {
     register,
     login,
     list,
-    refreshToken
+    refreshToken,
+    logout
 }

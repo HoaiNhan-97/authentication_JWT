@@ -1,6 +1,6 @@
 const express = require("express");
 const createError = require("http-errors");
-
+const cors = require('cors');
 const app = express();
 
 // require("./config/connection_mongodb.js");
@@ -10,6 +10,7 @@ const app = express();
 const userRouter = require("./api/v1/routes/user.route.js");
 
 
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 
